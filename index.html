@@ -172,7 +172,7 @@
                             <span>Métodos aprovados por pedagogos especializados em primeira infância</span>
                         </div>
                     </div>
-                    <button onclick="abrirWhatsApp()" class="bg-gold hover:bg-yellow-500 text-black poppins font-bold text-lg px-8 py-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300 bounce-slow">
+                    <button onclick="window.open('https://pay.kiwify.com.br/3dFCqAu', '_blank')" class="bg-gold hover:bg-yellow-500 text-black poppins font-bold text-lg px-8 py-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300 bounce-slow">
                         ADQUIRIR MATERIAL
                     </button>
                 </div>
@@ -391,7 +391,7 @@
             
             <!-- Botão Central -->
             <div class="text-center">
-                <button onclick="abrirWhatsApp()" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white fredoka text-2xl px-12 py-4 rounded-full shadow-2xl transform hover:scale-105 transition duration-300 bounce-slow border-4 border-white">
+                <button onclick="window.open('https://pay.kiwify.com.br/3dFCqAu', '_blank')" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white fredoka text-2xl px-12 py-4 rounded-full shadow-2xl transform hover:scale-105 transition duration-300 bounce-slow border-4 border-white">
                     <span class="rocket-animation">🚀</span> QUERO AVANÇAR
                 </button>
                 <p class="poppins text-gray-600 mt-4 text-sm">
@@ -414,14 +414,14 @@
                 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="bg-white/10 p-4 rounded-xl">
-                        <input type="text" placeholder="Seu nome" class="w-full p-3 rounded-lg text-dark-blue poppins">
+                        <input id="faq-nome" type="text" placeholder="Seu nome" class="w-full p-3 rounded-lg text-dark-blue poppins">
                     </div>
                     <div class="bg-white/10 p-4 rounded-xl">
-                        <input type="tel" placeholder="Seu WhatsApp" class="w-full p-3 rounded-lg text-dark-blue poppins">
+                        <input id="faq-whats" type="tel" placeholder="Seu WhatsApp" class="w-full p-3 rounded-lg text-dark-blue poppins">
                     </div>
                 </div>
                 
-                <button onclick="abrirWhatsApp()" class="bg-gold hover:bg-yellow-500 text-black poppins font-bold text-xl px-12 py-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">
+                <button onclick="enviarAtendimentoWhatsApp()" class="bg-gold hover:bg-yellow-500 text-black poppins font-bold text-xl px-12 py-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300">
                     SOLICITAR ATENDIMENTO
                 </button>
             </div>
@@ -588,6 +588,17 @@
             const mensagem = encodeURIComponent("Olá! Gostaria de adquirir o e-book Avance para Educação Infantil. Pode me ajudar?");
             const link = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
             
+            window.open(link, '_blank');
+        }
+
+        function enviarAtendimentoWhatsApp() {
+            const nome = document.getElementById('faq-nome').value;
+            const whats = document.getElementById('faq-whats').value;
+            let mensagem = `Oi, quero mais informações sobre o E-BOOK AVANCE,`;
+            if (nome) mensagem += `\nMeu nome é: ${nome}`;
+            if (whats) mensagem += `\nMeu WhatsApp: ${whats}`;
+            const numero = '559491334167';
+            const link = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
             window.open(link, '_blank');
         }
 
